@@ -18,17 +18,10 @@
 		"main": [
 			"astro.overworldinfra.OverworldInfrastructure"
 		],
-		"client": [
-			"astro.overworldinfra.client.OverworldInfrastructureClient"
+		"modmenu": [
+			"astro.overworldinfra.OverworldInfrastructureModMenu"
 		]
 	},
-	"mixins": [
-		"overworldinfrastructure.mixins.json",
-		{
-			"config": "overworldinfrastructure.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.19.5",
 		"minecraft": "~26.3",

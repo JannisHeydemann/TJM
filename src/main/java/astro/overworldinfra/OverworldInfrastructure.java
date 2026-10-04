@@ -1,5 +1,6 @@
 package astro.overworldinfra;
 
+import astro.overworldinfra.config.OverworldInfrastructureConfig;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -17,7 +18,7 @@ public class OverworldInfrastructure implements ModInitializer {
 			if (!world.isClientSide()) {
 				if (world.dimension() == Level.NETHER) {
 					BlockPos targetPos = hitResult.getBlockPos();
-					int maxHeight = 127;
+					int maxHeight = OverworldInfrastructureConfig.maxBuildHeight;
 
 					if (targetPos.getY() >= maxHeight) {
 						player.sendSystemMessage(
