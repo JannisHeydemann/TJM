@@ -9,15 +9,15 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	maven { url 'https://maven.isxander.dev/releases/' }
+	maven { url 'https://maven.terraformersmc.com/releases' }
 }
 
 loom {
-	splitEnvironmentSourceSets()
 
 	mods {
 		"overworldinfrastructure" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 }
@@ -29,6 +29,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Config implementation (using YACL)
+	implementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+	compileOnly "com.terraformersmc:modmenu:21.0.0"
 }
 
 processResources {
