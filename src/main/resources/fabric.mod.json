@@ -3,13 +3,13 @@
 	"id": "overworldinfrastructure",
 	"version": "${version}",
 	"name": "OverworldInfrastructure",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Its not evil! Shut up!",
 	"authors": [
-		"Me!"
+		"Jannis"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/JannisHeydemann/overworldinframod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/overworldinfrastructure/icon.png",
