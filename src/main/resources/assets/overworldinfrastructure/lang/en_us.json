@@ -1,0 +1,6 @@
+{
+  "tjm.config.name": "TJM - The journey matters",
+  "tjm.config.nether": "Nether",
+  "tjm.config.nether.buildHeight": "Nether build height",
+  "tjm.nether.maxheight": "You can't place blocks over Y=%s in the Nether"
+}

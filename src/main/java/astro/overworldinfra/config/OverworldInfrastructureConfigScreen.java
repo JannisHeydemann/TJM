@@ -13,11 +13,11 @@ public class OverworldInfrastructureConfigScreen {
     public static Screen create(Screen parent) {
         OverworldInfrastructureConfig config = OverworldInfrastructureConfigManager.getConfig();
         return YetAnotherConfigLib.createBuilder()
-                .title(Component.literal("Overworld Infrastructure"))
+                .title(Component.translatable("tjm.config.name"))
                 .category(ConfigCategory.createBuilder()
-                        .name(Component.literal("Nether"))
+                        .name(Component.translatable("tjm.config.nether"))
                         .option(Option.<Integer>createBuilder()
-                                .name(Component.literal("Nether build height"))
+                                .name(Component.translatable("tjm.config.nether.buildHeight"))
                                 .description(OptionDescription.EMPTY)
                                 .binding(127, () -> config.maxBuildHeight, value -> config.maxBuildHeight = value)
                                 .controller(option -> IntegerSliderControllerBuilder.create(option).range(0, 300).step(5))

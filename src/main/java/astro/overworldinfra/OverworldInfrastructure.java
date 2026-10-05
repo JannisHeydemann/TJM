@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.core.BlockPos;
 
 public class OverworldInfrastructure implements ModInitializer {
-	public static final String MOD_ID = "overworldinfrastructure";
+	public static final String MOD_ID = "tjm";
 
 	@Override
 	public void onInitialize() {
@@ -22,7 +22,7 @@ public class OverworldInfrastructure implements ModInitializer {
 
 					if (targetPos.getY() >= maxHeight) {
 						player.sendOverlayMessage(
-								Component.literal("§cBuilding higher then Y=" + maxHeight + " isn't allowed in the nether")
+								Component.translatable("tjm.nether.maxheight", maxHeight)
 						);
 
 						return InteractionResult.FAIL;
