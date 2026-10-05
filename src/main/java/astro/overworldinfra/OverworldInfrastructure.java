@@ -22,7 +22,7 @@ public class OverworldInfrastructure implements ModInitializer {
 
 					if (targetPos.getY() >= maxHeight) {
 						player.sendOverlayMessage(
-								Component.literal("§cBuilding higher then Y=" + maxHeight + " isnt allowed in the nether")
+								Component.literal("§cBuilding higher then Y=" + maxHeight + " isn't allowed in the nether")
 						);
 
 						return InteractionResult.FAIL;
