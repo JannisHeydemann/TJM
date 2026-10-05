@@ -1,6 +1,5 @@
-package astro.overworldinfra.config;
+package astro.tjm.config;
 
-import astro.overworldinfra.OverworldInfrastructure;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
@@ -9,7 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class OverworldInfrastructureConfigManager {
+public class TheJourneyMattersConfigManager {
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
             .create();
@@ -18,7 +17,7 @@ public class OverworldInfrastructureConfigManager {
             .getConfigDir()
             .resolve("overworldinfrastructure.json");
 
-    private static OverworldInfrastructureConfig config;
+    private static TheJourneyMattersConfig config;
 
     public static void load() {
         if (Files.exists(CONFIG_PATH)) {
@@ -27,14 +26,14 @@ public class OverworldInfrastructureConfigManager {
 
                 config = GSON.fromJson(
                         json,
-                        OverworldInfrastructureConfig.class
+                        TheJourneyMattersConfig.class
                 );
             } catch (IOException e) {
                 e.printStackTrace();
-                config = new OverworldInfrastructureConfig();
+                config = new TheJourneyMattersConfig();
             }
         } else {
-            config = new OverworldInfrastructureConfig();
+            config = new TheJourneyMattersConfig();
             save();
         }
     }
@@ -50,7 +49,7 @@ public class OverworldInfrastructureConfigManager {
         }
     }
 
-    public static OverworldInfrastructureConfig getConfig() {
+    public static TheJourneyMattersConfig getConfig() {
         if (config == null) {
             load();
         }

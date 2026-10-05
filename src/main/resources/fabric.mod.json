@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "overworldinfrastructure",
+	"id": "tjm",
 	"version": "${version}",
-	"name": "OverworldInfrastructure",
+	"name": "TJM - The Journey  Matters",
 	"description": "Its not evil! Shut up!",
 	"authors": [
 		"Jannis"
@@ -12,14 +12,14 @@
 		"sources": "https://github.com/JannisHeydemann/overworldinframod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/overworldinfrastructure/icon.png",
+	"icon": "assets/tjm/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"astro.overworldinfra.OverworldInfrastructure"
+			"astro.tjm.TheJourneyMatters"
 		],
 		"modmenu": [
-			"astro.overworldinfra.OverworldInfrastructureModMenu"
+			"astro.tjm.TheJourneyMattersModMenu"
 		]
 	},
 	"depends": {

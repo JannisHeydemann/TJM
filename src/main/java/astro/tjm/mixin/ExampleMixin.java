@@ -1,4 +1,4 @@
-package astro.overworldinfra.mixin;
+package astro.tjm.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
