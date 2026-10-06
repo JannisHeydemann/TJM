@@ -1,0 +1,6 @@
+{
+  "tjm.config.name": "TJM - Die Reise zählt",
+  "tjm.config.nether": "Nether",
+  "tjm.config.nether.buildHeight": "Maximale Bauhöhe im Nether",
+  "tjm.nether.maxheight": "Du kannst über Y=%s keine Blöcke platzieren"
+}
