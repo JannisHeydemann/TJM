@@ -7,6 +7,9 @@
 	"authors": [
 		"Jannis"
 	],
+	"mixins": [
+		"overworldinfrastructure.mixins.json"
+	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/JannisHeydemann/overworldinframod"

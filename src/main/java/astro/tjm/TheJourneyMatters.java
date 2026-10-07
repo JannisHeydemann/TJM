@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.core.BlockPos;
 
@@ -19,15 +20,14 @@ public class TheJourneyMatters implements ModInitializer {
 				if (world.dimension() == Level.NETHER) {
 					BlockPos targetPos = hitResult.getBlockPos();
 					int maxHeight = TheJourneyMattersConfig.maxBuildHeight;
+					ItemStack stack = player.getItemInHand(hand);
 
 					if (targetPos.getY() >= maxHeight) {
 						player.sendOverlayMessage(
 								Component.translatable("tjm.nether.maxheight", maxHeight)
 						);
-
 						return InteractionResult.FAIL;
 					}
-
 				}
 			}
 			return InteractionResult.PASS;
