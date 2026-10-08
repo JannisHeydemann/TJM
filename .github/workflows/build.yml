@@ -77,4 +77,4 @@ jobs:
       - name: publish to modrinth
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-        run: ./gradlew modrinth
+        run: ./gradlew modrinth --no-configuration-cache
