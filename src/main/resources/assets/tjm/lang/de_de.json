@@ -2,5 +2,8 @@
   "tjm.config.name": "TJM - Die Reise zählt",
   "tjm.config.nether": "Nether",
   "tjm.config.nether.buildHeight": "Maximale Bauhöhe im Nether",
+  "tjm.config.nether.buildHeight.desc": "Maximale erlaubte Bauhöhe in der Nether-Dimension.",
+  "tjm.config.nether.disallowedBlocks": "Verbotene Blöcke",
+  "tjm.config.nether.disallowedBlocks.desc": "Liste von Blöcken, die im Nether nicht platziert werden dürfen.",
   "tjm.nether.maxheight": "Du kannst über Y=%s keine Blöcke platzieren"
 }
