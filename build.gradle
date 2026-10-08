@@ -105,7 +105,7 @@ modrinth {
 	versionType.set(getModrinthReleaseType())
 	dependencies {
 		required.project "fabric-api"
-		optional.project "mod-menu"
-		optional.project "yacl"
+		required.project "yacl"
+		optional.project "modmenu"
 	}
 }
