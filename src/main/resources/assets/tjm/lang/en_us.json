@@ -2,5 +2,8 @@
   "tjm.config.name": "TJM - The journey matters",
   "tjm.config.nether": "Nether",
   "tjm.config.nether.buildHeight": "Nether build height",
+  "tjm.config.nether.buildHeight.desc": "Maximum allowed build height in the Nether dimension.",
+  "tjm.config.nether.disallowedBlocks": "Disallowed blocks",
+  "tjm.config.nether.disallowedBlocks.desc": "List of blocks that cannot be placed in the Nether.",
   "tjm.nether.maxheight": "You can't place blocks over Y=%s in the Nether"
 }

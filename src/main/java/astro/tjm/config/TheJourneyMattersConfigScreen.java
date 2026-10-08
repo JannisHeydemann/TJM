@@ -1,13 +1,14 @@
 package astro.tjm.config;
 
-import dev.isxander.yacl3.api.ConfigCategory;
-import dev.isxander.yacl3.api.Option;
-import dev.isxander.yacl3.api.OptionDescription;
-import dev.isxander.yacl3.api.YetAnotherConfigLib;
+import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
+import dev.isxander.yacl3.api.controller.StringControllerBuilder;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+
+import java.util.Collections;
+import java.util.List;
 
 public class TheJourneyMattersConfigScreen {
     public static Screen create(Screen parent) {
@@ -18,12 +19,27 @@ public class TheJourneyMattersConfigScreen {
                         .name(Component.translatable("tjm.config.nether"))
                         .option(Option.<Integer>createBuilder()
                                 .name(Component.translatable("tjm.config.nether.buildHeight"))
-                                .description(OptionDescription.EMPTY)
-                                .binding(127, () -> config.maxBuildHeight, value -> config.maxBuildHeight = value)
+                                .description(
+                                        OptionDescription.createBuilder()
+                                                .text(Component.translatable("tjm.config.nether.buildHeight.desc"))
+                                                .build()
+                                )
+                                .binding(127, () -> TheJourneyMattersConfig.maxBuildHeight, value -> TheJourneyMattersConfig.maxBuildHeight = value)
                                 .controller(option -> IntegerSliderControllerBuilder.create(option).range(0, 300).step(5))
                                 .build())
+                        .option(ListOption.<String>createBuilder()
+                                .name(Component.translatable("tjm.config.nether.disallowedBlocks"))
+                                .description(
+                                        OptionDescription.createBuilder()
+                                                .text(Component.translatable("tjm.config.nether.disallowedBlocks.desc"))
+                                                .build()
+                                )
+                                .binding(TheJourneyMattersConfig.disallowedNetherBlocks, () -> TheJourneyMattersConfig.disallowedNetherBlocks, value -> TheJourneyMattersConfig.disallowedNetherBlocks = value)
+                                .controller(StringControllerBuilder::create)
+                                .initial("")
+                                .build())
                         .build())
-                .save(() -> TheJourneyMattersConfigManager.save())
+                .save(TheJourneyMattersConfigManager::save)
                 .build()
                 .generateScreen(parent);
     }
