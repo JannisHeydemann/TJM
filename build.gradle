@@ -24,27 +24,12 @@ loom {
 }
 
 def getModrinthReleaseType() {
-	// Check for an environment variable (e.g. from GitHub Actions) or git tag message
-	def tagMessage = System.getenv("GIT_TAG_MESSAGE") ?: ""
+	def tag = System.getenv("GIT_TAG_NAME") ?: System.getenv("GIT_TAG_MESSAGE") ?: ""
+	tag = tag.toLowerCase()
 
-	// Fallback: If running locally or no env var, try fetching the latest tag via git command
-	if (tagMessage.isEmpty()) {
-		try {
-			tagMessage = "git describe --tags --exact-match".execute().text.trim()
-		} catch (Exception e) {
-			tagMessage = ""
-		}
-	}
-
-	tagMessage = tagMessage.toLowerCase()
-
-	if (tagMessage.contains("alpha")) {
-		return "alpha"
-	} else if (tagMessage.contains("beta")) {
-		return "beta"
-	} else {
-		return "release"
-	}
+	if (tag.contains("alpha")) return "alpha"
+	if (tag.contains("beta")) return "beta"
+	return "release"
 }
 
 dependencies {
