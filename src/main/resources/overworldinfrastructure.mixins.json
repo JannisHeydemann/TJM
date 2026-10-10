@@ -3,7 +3,7 @@
 	"package": "astro.tjm.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"ExampleMixin"
+		"TJMMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
