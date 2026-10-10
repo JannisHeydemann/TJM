@@ -4,6 +4,14 @@ plugins {
 	id("com.modrinth.minotaur") version "2.10.0"
 }
 
+// Release tags are the source of truth for release builds. Strip the conventional
+// leading "v" so the jar, mod metadata, and Modrinth all use the same version.
+def releaseTag = System.getenv("GIT_TAG_NAME") ?: System.getenv("GIT_TAG_MESSAGE") ?: ""
+def releaseVersion = releaseTag.replaceFirst(/^[vV]/, "")
+if (!releaseVersion.isEmpty()) {
+	project.version = releaseVersion
+}
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -24,8 +32,7 @@ loom {
 }
 
 def getModrinthReleaseType() {
-	def tag = System.getenv("GIT_TAG_NAME") ?: System.getenv("GIT_TAG_MESSAGE") ?: ""
-	tag = tag.toLowerCase()
+	def tag = (System.getenv("GIT_TAG_NAME") ?: System.getenv("GIT_TAG_MESSAGE") ?: "").toLowerCase()
 
 	if (tag.contains("alpha")) return "alpha"
 	if (tag.contains("beta")) return "beta"
@@ -98,7 +105,7 @@ modrinth {
 	token.set(System.getenv("MODRINTH_TOKEN"))
 	projectId.set("tjm")
 	versionNumber.set(project.version.toString())
-	versionName.set("v${project.version}")
+	versionName.set(project.version.toString())
 	uploadFile.set(tasks.jar)
 	gameVersions.addAll(project.minecraft_version.toString())
 	loaders.addAll("fabric")
