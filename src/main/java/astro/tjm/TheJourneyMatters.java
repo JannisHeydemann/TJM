@@ -10,7 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.level.block.Blocks;
 
 public class TheJourneyMatters implements ModInitializer {
@@ -18,7 +18,7 @@ public class TheJourneyMatters implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ServerTickEvents.END_WORLD_TICK.register(world -> {
+		ServerTickEvents.END_LEVEL_TICK.register(world -> {
 			if (world.dimension() != Level.NETHER) {
 				return;
 			}
