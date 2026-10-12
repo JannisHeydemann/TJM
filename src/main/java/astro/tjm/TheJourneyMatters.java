@@ -1,40 +1,57 @@
 package astro.tjm;
 
-import astro.tjm.config.TheJourneyMattersConfig;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.level.block.Blocks;
 
-//public class TheJourneyMatters implements ModInitializer {
-//	public static final String MOD_ID = "tjm";
-//
-//	@Override
-//	public void onInitialize() {
-//		UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
-//			if (!world.isClientSide()) {
-//				if (world.dimension() == Level.NETHER) {
-//					BlockPos targetPos = hitResult.getBlockPos();
-//					int maxHeight = TheJourneyMattersConfig.maxBuildHeight;
-//					ItemStack stack = player.getItemInHand(hand);
-//
-//					if (targetPos.getY() >= maxHeight) {
-//						player.sendOverlayMessage(
-//								Component.translatable("tjm.nether.maxheight", maxHeight)
-//						);
-//						return InteractionResult.FAIL;
-//					}
-//				}
-//			}
-//			return InteractionResult.PASS;
-//		});
-//	}
-//
-//	public static Identifier id(String path) {
-//		return Identifier.fromNamespaceAndPath(MOD_ID, path);
-//	}
-//}
+public class TheJourneyMatters implements ModInitializer {
+	public static final String MOD_ID = "tjm";
+
+	@Override
+	public void onInitialize() {
+		ServerTickEvents.END_WORLD_TICK.register(world -> {
+			if (world.dimension() != Level.NETHER) {
+				return;
+			}
+
+			for (ServerPlayer player : world.players()) {
+				BlockPos feet = player.blockPosition();
+				if (feet.getY() >= 128 && world.getBlockState(feet.below()).is(Blocks.BEDROCK)) {
+					award(player, world, "nether_roof", "on_roof");
+				}
+			}
+		});
+
+		ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
+			if (!(entity instanceof Mob)
+					|| !(entity.level() instanceof ServerLevel world)
+					|| world.dimension() != Level.NETHER
+					|| !(damageSource.getEntity() instanceof Wolf wolf)
+					|| !(wolf.getOwner() instanceof ServerPlayer owner)) {
+				return;
+			}
+
+			award(owner, world, "first_of_its_kind", "wolf_killed");
+		});
+	}
+
+	private static void award(ServerPlayer player, ServerLevel world, String advancementPath, String criterion) {
+		AdvancementHolder advancement = world.getServer().getAdvancements().get(id("adventure/" + advancementPath));
+		if (advancement != null) {
+			player.getAdvancements().award(advancement, criterion);
+		}
+	}
+
+	private static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+	}
+}

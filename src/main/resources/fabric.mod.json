@@ -18,6 +18,9 @@
 	"icon": "assets/tjm/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"main": [
+			"astro.tjm.TheJourneyMatters"
+		],
 		"modmenu": [
 			"astro.tjm.TheJourneyMattersModMenu"
 		]

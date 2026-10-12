@@ -5,5 +5,13 @@
   "tjm.config.nether.buildHeight.desc": "Maximale erlaubte Bauhöhe in der Nether-Dimension.",
   "tjm.config.nether.disallowedBlocks": "Verbotene Blöcke",
   "tjm.config.nether.disallowedBlocks.desc": "Liste von Blöcken, die im Nether nicht platziert werden dürfen.",
-  "tjm.nether.maxheight": "Du kannst über Y=%s keine Blöcke platzieren"
+  "tjm.nether.maxheight": "Du kannst über Y=%s keine Blöcke platzieren",
+  "advancements.tjm.root.title": "Die Reise zählt",
+  "advancements.tjm.root.description": "Eine Sammlung von Errungenschaften für deine Reise.",
+  "advancements.tjm.nether_roof.title": "Auf dem Dach der Welt",
+  "advancements.tjm.nether_roof.description": "Stelle dich im Nether auf das Bedrock-Dach.",
+  "advancements.tjm.first_of_its_kind.title": "Der Erste seiner Art",
+  "advancements.tjm.first_of_its_kind.description": "Lass deinen gezähmten Wolf einen Mob im Nether töten.",
+  "advancements.tjm.the_grocer.title": "Der Kiepenkerl",
+  "advancements.tjm.the_grocer.description": "Handle mit einem Dorfbewohner jedes Berufs."
 }

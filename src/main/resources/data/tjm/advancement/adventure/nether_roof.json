@@ -1,0 +1,20 @@
+{
+  "parent": "tjm:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:bedrock"
+    },
+    "title": {
+      "translate": "advancements.tjm.nether_roof.title"
+    },
+    "description": {
+      "translate": "advancements.tjm.nether_roof.description"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "on_roof": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
