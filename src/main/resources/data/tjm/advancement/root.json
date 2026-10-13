@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:bedrock"
+    },
+    "title": {
+      "translate": "advancements.tjm.root.title"
+    },
+    "description": {
+      "translate": "advancements.tjm.root.description"
+    },
+    "background": "tjm:gui/advancements/journey",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

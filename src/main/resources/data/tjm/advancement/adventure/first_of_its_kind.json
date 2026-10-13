@@ -1,0 +1,20 @@
+{
+  "parent": "tjm:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:bone"
+    },
+    "title": {
+      "translate": "advancements.tjm.first_of_its_kind.title"
+    },
+    "description": {
+      "translate": "advancements.tjm.first_of_its_kind.description"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "wolf_killed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
