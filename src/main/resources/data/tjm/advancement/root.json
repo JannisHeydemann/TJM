@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.tjm.root.description"
     },
-    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "background": "tjm:gui/advancements/journey",
     "show_toast": false,
     "announce_to_chat": false
   },
