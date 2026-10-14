@@ -21,13 +21,6 @@
 		"sources": "https://github.com/JannisHeydemann/TJM",
 		"issues": "https://github.com/JannisHeydemann/TJM/issues"
 	},
-	"custom": {
-		"modmenu": {
-			"links": {
-				"modmenu.discord": "https://github.com/JannisHeydemann/TJM/discussions"
-			}
-		}
-	},
 	"license": "GPL-3.0",
 	"icon": "assets/tjm/icon.png",
 	"environment": "*",
