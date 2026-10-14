@@ -10,6 +10,9 @@ import net.minecraft.network.chat.Component;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Builds the YACL configuration screen.
+ */
 public class TheJourneyMattersConfigScreen {
     public static Screen create(Screen parent) {
         TheJourneyMattersConfig config = TheJourneyMattersConfigManager.getConfig();

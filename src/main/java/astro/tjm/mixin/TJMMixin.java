@@ -21,6 +21,9 @@ import java.util.*;
 
 
 @Mixin(BlockItem.class)
+/**
+ * Cancels block placement in the Nether above the configured height or for disallowed blocks.
+ */
 public class TJMMixin {
     @Inject(at = @At("HEAD"), method = "place", cancellable = true)
     private void tjm$preventIceInNether(

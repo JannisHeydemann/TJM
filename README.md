@@ -68,6 +68,7 @@ that `./gradlew build` succeeds.
 
 **Jannis Heydemann** — [GitHub](https://github.com/JannisHeydemann)
 
-## License
+## Build
+`./gradlew build`
 
 TJM is licensed under the [GNU General Public License v3.0](LICENSE).

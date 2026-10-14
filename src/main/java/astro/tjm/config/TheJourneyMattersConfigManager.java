@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Loads and saves the JSON config file in the Fabric config directory.
+ */
 public class TheJourneyMattersConfigManager {
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
