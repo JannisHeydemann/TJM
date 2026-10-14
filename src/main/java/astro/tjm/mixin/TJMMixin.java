@@ -40,7 +40,7 @@ public class TJMMixin {
             try {
                 Identifier id = Identifier.parse(blockId);
                 blocks.add(BuiltInRegistries.BLOCK.getValue(id));
-            } catch (Exception _) {}
+            } catch (Exception ignored) {}
 
         }
 
