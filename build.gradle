@@ -31,7 +31,7 @@ loom {
 	}
 }
 
-def getModrinthReleaseType() {
+def static getModrinthReleaseType() {
 	def tag = (System.getenv("GIT_TAG_NAME") ?: System.getenv("GIT_TAG_MESSAGE") ?: "").toLowerCase()
 
 	if (tag.contains("alpha")) return "alpha"
