@@ -13,6 +13,9 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.level.block.Blocks;
 
+/**
+ * Main entrypoint. Registers the listeners that award the code-driven Journey advancements.
+ */
 public class TheJourneyMatters implements ModInitializer {
 	public static final String MOD_ID = "tjm";
 
