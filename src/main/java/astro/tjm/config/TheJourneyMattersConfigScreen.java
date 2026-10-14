@@ -10,6 +10,9 @@ import net.minecraft.network.chat.Component;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Builds the YACL configuration screen.
+ */
 public class TheJourneyMattersConfigScreen {
     public static Screen create(Screen parent) {
         TheJourneyMattersConfig config = TheJourneyMattersConfigManager.getConfig();
@@ -24,7 +27,7 @@ public class TheJourneyMattersConfigScreen {
                                                 .text(Component.translatable("tjm.config.nether.buildHeight.desc"))
                                                 .build()
                                 )
-                                .binding(127, () -> TheJourneyMattersConfig.maxBuildHeight, value -> TheJourneyMattersConfig.maxBuildHeight = value)
+                                .binding(127, () -> config.maxBuildHeight, value -> config.maxBuildHeight = value)
                                 .controller(option -> IntegerSliderControllerBuilder.create(option).range(0, 300).step(5))
                                 .build())
                         .option(ListOption.<String>createBuilder()
@@ -34,7 +37,7 @@ public class TheJourneyMattersConfigScreen {
                                                 .text(Component.translatable("tjm.config.nether.disallowedBlocks.desc"))
                                                 .build()
                                 )
-                                .binding(TheJourneyMattersConfig.disallowedNetherBlocks, () -> TheJourneyMattersConfig.disallowedNetherBlocks, value -> TheJourneyMattersConfig.disallowedNetherBlocks = value)
+                                .binding(config.disallowedNetherBlocks, () -> config.disallowedNetherBlocks, value -> config.disallowedNetherBlocks = value)
                                 .controller(StringControllerBuilder::create)
                                 .initial("")
                                 .build())

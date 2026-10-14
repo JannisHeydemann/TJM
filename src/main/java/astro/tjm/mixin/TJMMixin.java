@@ -1,6 +1,7 @@
 package astro.tjm.mixin;
 
 import astro.tjm.config.TheJourneyMattersConfig;
+import astro.tjm.config.TheJourneyMattersConfigManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -21,6 +22,9 @@ import java.util.*;
 
 
 @Mixin(BlockItem.class)
+/**
+ * Cancels block placement in the Nether above the configured height or for disallowed blocks.
+ */
 public class TJMMixin {
     @Inject(at = @At("HEAD"), method = "place", cancellable = true)
     private void tjm$preventIceInNether(
@@ -28,16 +32,19 @@ public class TJMMixin {
             CallbackInfoReturnable<InteractionResult> cir
     ) {
         BlockItem blockItem = (BlockItem) (Object) this;
+        TheJourneyMattersConfig config = TheJourneyMattersConfigManager.getConfig();
 
         List<Block> blocks = new ArrayList<>();
 
-        for (String blockId : TheJourneyMattersConfig.disallowedNetherBlocks) {
-            Identifier id = Identifier.parse(blockId);
+        for (String blockId : config.disallowedNetherBlocks) {
+            try {
+                Identifier id = Identifier.parse(blockId);
+                blocks.add(BuiltInRegistries.BLOCK.getValue(id));
+            } catch (Exception ignored) {}
 
-            blocks.add(BuiltInRegistries.BLOCK.getValue(id));
         }
 
-        if (placeContext.getLevel().dimension() == Level.NETHER && TheJourneyMattersConfig.disallowedNetherBlocks.contains(blockItem.toString())) {
+        if (placeContext.getLevel().dimension() == Level.NETHER && blocks.contains(blockItem.getBlock())) {
             cir.setReturnValue(InteractionResult.FAIL);
         }
     }
@@ -49,10 +56,11 @@ public class TJMMixin {
     ) {
         Level world = placeContext.getLevel();
         Player player = placeContext.getPlayer();
+        TheJourneyMattersConfig config = TheJourneyMattersConfigManager.getConfig();
 
         if (world.dimension() == Level.NETHER) {
             BlockPos targetPos = placeContext.getClickedPos();
-            int maxHeight = TheJourneyMattersConfig.maxBuildHeight;
+            int maxHeight = config.maxBuildHeight;
 
             if (targetPos.getY() >= maxHeight) {
                 assert player != null;
