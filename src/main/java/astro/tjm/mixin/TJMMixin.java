@@ -37,9 +37,11 @@ public class TJMMixin {
         List<Block> blocks = new ArrayList<>();
 
         for (String blockId : config.disallowedNetherBlocks) {
-            Identifier id = Identifier.parse(blockId);
+            try {
+                Identifier id = Identifier.parse(blockId);
+                blocks.add(BuiltInRegistries.BLOCK.getValue(id));
+            } catch (Exception _) {}
 
-            blocks.add(BuiltInRegistries.BLOCK.getValue(id));
         }
 
         if (placeContext.getLevel().dimension() == Level.NETHER && blocks.contains(blockItem.getBlock())) {
