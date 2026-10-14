@@ -42,7 +42,7 @@ public class TJMMixin {
             blocks.add(BuiltInRegistries.BLOCK.getValue(id));
         }
 
-        if (placeContext.getLevel().dimension() == Level.NETHER && config.disallowedNetherBlocks.contains(blockItem.toString())) {
+        if (placeContext.getLevel().dimension() == Level.NETHER && blocks.contains(blockItem.getBlock())) {
             cir.setReturnValue(InteractionResult.FAIL);
         }
     }
