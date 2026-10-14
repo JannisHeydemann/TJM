@@ -42,7 +42,7 @@ discuss it.
 - Fabric API
 - YetAnotherConfigLib (YACL)
 
-Mod Menu is optional.
+Mod Menu is optional, but required to access the configuration screen.
 
 ## Build from source
 
