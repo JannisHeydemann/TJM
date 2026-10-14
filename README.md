@@ -1,26 +1,36 @@
 # TJM — The Journey Matters
 
-TJM is a Fabric mod for Minecraft that adds a collection of custom advancements
-for the unexpected moments and milestones along your journey.
+TJM is a Fabric mod focused on changing how players travel, starting with
+configurable building rules in the Nether. Custom advancements are a smaller
+part of the mod.
 
-## Progress
+## Features
 
-The current advancement collection includes:
+### Nether travel and building
+
+- Configure the maximum height for placing blocks in the Nether.
+- Prevent selected blocks from being placed in the Nether. Ice, packed ice,
+  frosted ice, and blue ice are disallowed by default.
+
+Both settings can be changed in the mod's configuration screen.
+
+### Advancements
+
+The mod also includes a small collection of custom advancements:
 
 - **The Roof Is Lava** — stand on the Nether roof.
 - **The First of Its Kind** — have your tamed wolf kill a mob in the Nether.
 - **The Grocer** — trade with a villager of every profession.
 
-The project is under active development. These advancements are implemented;
-more are planned.
+## Progress and roadmap
 
-## Roadmap
+The configurable Nether placement rules and current advancements are
+implemented. The main focus is to continue developing travel-focused mechanics.
+Potential future directions include:
 
-Ideas for future development include:
-
-- Add more advancements for memorable exploration and gameplay milestones.
-- Continue improving advancement descriptions and translations.
-- Test and polish the experience across supported multiplayer setups.
+- Add more ways to customize Nether travel and building rules.
+- Explore additional gameplay features that change how players travel.
+- Expand the advancement collection as a supporting feature.
 
 Have an idea? [Open an issue](https://github.com/JannisHeydemann/TJM/issues) to
 discuss it.
