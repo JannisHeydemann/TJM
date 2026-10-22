@@ -7,4 +7,4 @@
 5. `./gradlew javadoc` – generate API docs.
 
 ## Docs
-Wiki pages live in `docs/wiki/` in the main repo. Edit them via pull request; the `Wiki sync` workflow publishes them to the GitHub Wiki on merge to `master`. Do not edit the wiki directly, as changes will be overwritten.
+Wiki pages live in `docs/` in the main repo and are built with MkDocs. Edit them via pull request; the `Deploy wiki` workflow publishes them to GitHub Pages on merge to `master`.
