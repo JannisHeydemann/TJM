@@ -24,4 +24,4 @@ Package root: `astro.tjm` (mod id `tjm`). Entrypoints are declared in `fabric.mo
    Code driven: use the `minecraft:impossible` trigger and call `award(player, world, "<name>", "<criterion>")` from an event in `TheJourneyMatters`.
 
 ## Build
-`./gradlew build` (JDK 25). See [[Contributing]].
+`./gradlew build` (JDK 25). See [Contributing](Contributing.md).

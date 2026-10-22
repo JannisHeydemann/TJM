@@ -18,6 +18,6 @@ A Fabric mod that adds a custom **Journey** advancement tab and a few Nether rul
 3. Start the game.
 
 ## Pages
-- [[Game Mechanics|Game-Mechanics]]
-- [[Code Documentation|Code-Documentation]]
-- [[Contributing]]
+- [Game Mechanics](Game-Mechanics.md)
+- [Code Documentation](Code-Documentation.md)
+- [Contributing](Contributing.md)
