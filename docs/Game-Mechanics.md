@@ -10,7 +10,7 @@ The root advancement `tjm:root` ("The Journey Matters", bedrock icon) creates th
 | The First of Its Kind | `tjm:adventure/first_of_its_kind` | Bone | Have your tamed wolf kill a mob in the Nether. |
 | The Grocer | `tjm:adventure/the_grocer` | Emerald | Trade with a villager of every profession (13 criteria, all required). |
 
-All three use the "goal" frame and grant no rewards. `nether_roof` and `first_of_its_kind` use the `minecraft:impossible` trigger and are awarded from code (see [[Code Documentation|Code-Documentation]]). `the_grocer` is fully data driven.
+All three use the "goal" frame and grant no rewards. `nether_roof` and `first_of_its_kind` use the `minecraft:impossible` trigger and are awarded from code (see [Code Documentation](Code-Documentation.md)). `the_grocer` is fully data driven.
 
 Villager professions required: armorer, butcher, cartographer, cleric, farmer, fisherman, fletcher, leatherworker, librarian, mason, shepherd, toolsmith, weaponsmith.
 
