@@ -8,10 +8,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.level.block.Blocks;
+
+import java.util.List;
 
 /**
  * Main entrypoint. Registers the listeners that award the code-driven Journey advancements.
@@ -44,6 +51,32 @@ public class TheJourneyMatters implements ModInitializer {
 			}
 
 			award(owner, world, "first_of_its_kind", "wolf_killed");
+		});
+
+
+		ServerTickEvents.END_LEVEL_TICK.register(server -> {
+            List<ServerPlayer> players = server.players();
+			for (ServerPlayer player : players) {
+				Inventory inventory = player.getInventory();
+				int slot = inventory.findSlotMatchingItem(new ItemStack(Items.ELYTRA));
+
+				if (slot != -1) {
+					int count = inventory.getSlot(slot).get().count();
+					ItemStack extractedStack = inventory.removeItem(slot, count);
+					player.drop(extractedStack, false, null);
+				}
+			}
+		});
+
+		ServerTickEvents.END_LEVEL_TICK.register(server -> {
+			List<ServerPlayer> players = server.players();
+			for (ServerPlayer player : players) {
+				ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+				if (chest.getItem().equals(Items.ELYTRA)) {
+					player.setItemSlot(EquipmentSlot.CHEST, ItemStack.EMPTY);
+					player.drop(new ItemStack(Items.ELYTRA), false, null);
+				}
+			}
 		});
 	}
 
