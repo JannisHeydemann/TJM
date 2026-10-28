@@ -58,12 +58,12 @@ public class TheJourneyMatters implements ModInitializer {
             List<ServerPlayer> players = server.players();
 			for (ServerPlayer player : players) {
 				Inventory inventory = player.getInventory();
-				int slot = inventory.findSlotMatchingItem(new ItemStack(Items.ELYTRA));
-
-				if (slot != -1) {
-					int count = inventory.getSlot(slot).get().count();
-					ItemStack extractedStack = inventory.removeItem(slot, count);
-					player.drop(extractedStack, false, null);
+for (int slot = 0; slot < inventory.getContainerSize(); slot++) {
+					ItemStack stack = inventory.getItem(slot);
+					if (stack.getItem() == Items.ELYTRA) {
+						ItemStack extractedStack = inventory.removeItem(slot, stack.getCount());
+						player.drop(extractedStack, false, null);
+					}
 				}
 			}
 		});
